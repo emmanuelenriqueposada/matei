@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Una carta especial para Mamatei, María Esther, con todo el cariño del Día de las Madres." />
+  <title>Para Mamatei 💜 Feliz Día de las Madres</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Canvas de estrellas -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- Contenido principal -->
+  <div id="app">
+
+    <!-- ===================== -->
+    <!-- PANTALLA DE BIENVENIDA -->
+    <!-- ===================== -->
+    <div id="welcome-screen">
+
+      <!-- Flores decorativas superiores -->
+      <div class="welcome-flowers" aria-hidden="true">🌸 💜 🌸</div>
+
+      <!-- Título principal -->
+      <h1 class="welcome-title">Para ti, Mamatei 💜</h1>
+      <p class="welcome-subtitle">Toca el sobre para abrir tu carta especial</p>
+
+      <!-- SOBRE ANIMADO -->
+      <div id="envelope-container" role="button" tabindex="0" aria-label="Abrir carta de amor"
+           onkeydown="if(event.key==='Enter'||event.key===' ')this.click()">
+        <div class="envelope">
+
+          <!-- Cuerpo del sobre -->
+          <div class="envelope-body"></div>
+
+          <!-- Solapa superior (se abre) -->
+          <div class="envelope-flap" aria-hidden="true"></div>
+
+          <!-- Sello / corazón central -->
+          <div class="envelope-seal" aria-hidden="true">💜</div>
+
+          <!-- Carta que asoma -->
+          <div class="letter-preview" aria-hidden="true"></div>
+
+        </div>
+      </div>
+
+      <!-- Botón abrir -->
+      <button id="btn-open" class="btn-open" type="button">
+        💌 Abrir mi carta
+      </button>
+
+    </div>
+    <!-- /welcome-screen -->
+
+
+    <!-- ================== -->
+    <!-- PANTALLA DE CARTA  -->
+    <!-- ================== -->
+    <div id="letter-screen" role="main" aria-live="polite">
+
+      <!-- Cabecera -->
+      <header class="letter-header">
+        <span class="letter-flowers-top" aria-hidden="true">🌸 💜 🌸</span>
+        <h2 class="letter-title">Para María Esther — nuestra Mamatei</h2>
+        <time class="letter-date" datetime="">Día de las Madres ✨</time>
+      </header>      
+
+      <!-- Carta de amor -->
+      <article class="letter-card">
+
+        <p class="letter-greeting">Querida Mamatei,</p>
+
+        <div class="letter-divider" aria-hidden="true">
+          <span>🌸</span>
+        </div>
+
+        <p class="letter-body">
+          Hay momentos en la vida que no necesitan de grandes palabras para
+          ser eternos. Basta con una mirada, una sonrisa, o sentir tu presencia
+          cerca para saber que todo tiene sentido.
+        </p>
+        
+
+        <div class="letter-divider" aria-hidden="true">
+          <span>💜</span>
+        </div>
+
+        <p class="letter-body">
+          Gracias por cada consejo que me has dado con tanta paciencia y cariño
+          a lo largo de estos años. Tus palabras me han guiado en los momentos
+          difíciles y han celebrado conmigo los de alegría. Ese aprecio que
+          siempre me has tenido lo llevo grabado en el corazón.
+        </p>        
+
+        <div class="letter-divider" aria-hidden="true">
+          <span>👑</span>
+        </div>
+
+        <p class="letter-body">
+          En este Día de las Madres quiero honrarte a ti, Mamatei, quien sin
+          llevar el nombre de mamá por la vida, ha ejercido ese amor con una
+          entrega que pocas personas conocen. Eres un ejemplo de ternura y
+          fortaleza, y hoy celebramos lo afortunados que somos de tenerte.
+        </p>
+
+        <p class="letter-body">
+          Te queremos hoy, mañana y siempre. 🌸
+        </p>
+
+        <div class="letter-divider" aria-hidden="true">
+          <span>✨</span>
+        </div>
+
+        <p class="letter-signature">Con todo nuestro cariño,<br><em>Ely, Marianita, Amanda y Yo 💜</em></p>
+
+      </article>
+
+      <!-- Botón volver -->
+      <button id="btn-back" class="btn-back" type="button">
+        ← Volver al sobre
+      </button>
+
+    </div>
+    <!-- /letter-screen -->
+
+  </div>
+  <!-- /app -->
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+
+</body>
+</html>
