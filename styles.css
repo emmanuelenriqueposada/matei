@@ -594,3 +594,92 @@ body {
     padding: 20px 16px;
   }
 }
+
+/* ══════════════════════════════
+   ADDON — Barra de música Mamatei
+   Pega esto al final de styles.css
+══════════════════════════════ */
+
+#music-bar {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  background: rgba(100, 0, 160, 0.25);
+  border: 1px solid rgba(180, 100, 255, 0.35);
+  border-radius: 50px;
+  padding: .6rem 1.4rem;
+  cursor: pointer;
+  width: min(380px, 90vw);
+  margin: 0 auto 1.4rem;
+  backdrop-filter: blur(10px);
+  transition: background .3s ease, transform .2s ease;
+  outline: none;
+  user-select: none;
+}
+
+#music-bar:hover {
+  background: rgba(130, 0, 200, 0.38);
+  transform: scale(1.02);
+}
+
+#music-bar:focus-visible {
+  box-shadow: 0 0 0 3px rgba(180, 100, 255, 0.6);
+}
+
+.music-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: transform .3s ease;
+}
+
+.music-icon.playing {
+  animation: musicBounce .5s ease-in-out infinite alternate;
+}
+
+@keyframes musicBounce {
+  from { transform: scale(1); }
+  to   { transform: scale(1.25); }
+}
+
+.music-text {
+  flex: 1;
+  font-size: .85rem;
+  color: rgba(220, 180, 255, .9);
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Ondas animadas */
+.music-waves {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.music-waves span {
+  display: block;
+  width: 3px;
+  border-radius: 3px;
+  background: #c084fc;
+  animation: waveBar .7s ease-in-out infinite alternate;
+  min-height: 4px;
+}
+
+.music-waves span:nth-child(1) { animation-delay: .0s; height: 7px; }
+.music-waves span:nth-child(2) { animation-delay: .1s; height: 13px; }
+.music-waves span:nth-child(3) { animation-delay: .2s; height: 18px; }
+.music-waves span:nth-child(4) { animation-delay: .3s; height: 11px; }
+.music-waves span:nth-child(5) { animation-delay: .4s; height: 5px; }
+
+.music-waves.paused span {
+  animation: none;
+  height: 4px;
+  opacity: .3;
+}
+
+@keyframes waveBar {
+  from { transform: scaleY(.25); opacity: .55; }
+  to   { transform: scaleY(1);   opacity: 1; }
+}
