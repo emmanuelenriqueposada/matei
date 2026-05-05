@@ -5,106 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Una carta especial para Mamatei, María Esther, con todo el cariño del Día de las Madres." />
   <title>Para Mamatei 💜 Feliz Día de las Madres</title>
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <!-- Estilos -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Canvas de estrellas -->
   <canvas id="starfield" aria-hidden="true"></canvas>
 
-  <!-- Contenido principal -->
   <div id="app">
 
-    <!-- ===================== -->
     <!-- PANTALLA DE BIENVENIDA -->
-    <!-- ===================== -->
     <div id="welcome-screen">
-
-      <!-- Flores decorativas superiores -->
       <div class="welcome-flowers" aria-hidden="true">🌸 💜 🌸</div>
-
-      <!-- Título principal -->
       <h1 class="welcome-title">Para ti, Mamatei 💜</h1>
       <p class="welcome-subtitle">Toca el sobre para abrir tu carta especial</p>
 
-      <!-- SOBRE ANIMADO -->
-      <div id="envelope-container" role="button" tabindex="0" aria-label="Abrir carta de amor"
+      <div id="envelope-container" role="button" tabindex="0" aria-label="Abrir carta"
            onkeydown="if(event.key==='Enter'||event.key===' ')this.click()">
         <div class="envelope">
-
-          <!-- Cuerpo del sobre -->
           <div class="envelope-body"></div>
-
-          <!-- Solapa superior (se abre) -->
           <div class="envelope-flap" aria-hidden="true"></div>
-
-          <!-- Sello / corazón central -->
           <div class="envelope-seal" aria-hidden="true">💜</div>
-
-          <!-- Carta que asoma -->
           <div class="letter-preview" aria-hidden="true"></div>
-
         </div>
       </div>
 
-      <!-- Botón abrir -->
       <button id="btn-open" class="btn-open" type="button">
         💌 Abrir mi carta
       </button>
-
     </div>
-    <!-- /welcome-screen -->
 
-
-    <!-- ================== -->
-    <!-- PANTALLA DE CARTA  -->
-    <!-- ================== -->
+    <!-- PANTALLA DE CARTA -->
     <div id="letter-screen" role="main" aria-live="polite">
 
-      <!-- Cabecera -->
       <header class="letter-header">
         <span class="letter-flowers-top" aria-hidden="true">🌸 💜 🌸</span>
         <h2 class="letter-title">Para María Esther — nuestra Mamatei</h2>
-        <time class="letter-date" datetime="">Día de las Madres 10 - 05 - 2026 ✨</time>
-      </header>      
+        <time class="letter-date" datetime="">Día de las Madres 10 - 05 - 26 ✨</time>
+      </header>
 
-      <!-- Carta de amor -->
+      <!-- BARRA DE MÚSICA -->
+      <div id="music-bar" role="button" tabindex="0" aria-label="Pausar música"
+           onkeydown="if(event.key==='Enter'||event.key===' ')this.click()">
+        <span id="music-icon" class="music-icon playing">🎵</span>
+        <span class="music-text">Música para Mamatei</span>
+        <div id="music-waves" class="music-waves">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
       <article class="letter-card">
 
         <p class="letter-greeting">Querida Mamatei,</p>
 
-        <div class="letter-divider" aria-hidden="true">
-          <span>🌸</span>
-        </div>
+        <div class="letter-divider" aria-hidden="true"><span>🌸</span></div>
 
         <p class="letter-body">
           Hay momentos en la vida que no necesitan de grandes palabras para
           ser eternos. Basta con una mirada, una sonrisa, o sentir tu presencia
           cerca para saber que todo tiene sentido.
         </p>
-        
 
-        <div class="letter-divider" aria-hidden="true">
-          <span>💜</span>
-        </div>
+        <div class="letter-divider" aria-hidden="true"><span>💜</span></div>
 
         <p class="letter-body">
           Gracias por cada consejo que me has dado con tanta paciencia y cariño
           a lo largo de estos años. Tus palabras me han guiado en los momentos
           difíciles y han celebrado conmigo los de alegría. Ese aprecio que
-          siempre me has tenido lo llevo grabado en el corazón.
-        </p>        
+          siempre me has tenido lo llevo grabado en la mente.
+        </p>
 
-        <div class="letter-divider" aria-hidden="true">
-          <span>👑</span>
-        </div>
+        <div class="letter-divider" aria-hidden="true"><span>👑</span></div>
 
         <p class="letter-body">
           En este Día de las Madres quiero honrarte a ti, Mamatei, quien sin
@@ -114,30 +87,125 @@
         </p>
 
         <p class="letter-body">
-          Te queremos hoy, mañana y siempre. 🌸
+          Te queremos mucho... 🌸
         </p>
 
-        <div class="letter-divider" aria-hidden="true">
-          <span>✨</span>
-        </div>
+        <div class="letter-divider" aria-hidden="true"><span>✨</span></div>
 
         <p class="letter-signature">Con todo nuestro cariño,<br><em>Ely, Marianita, Amanda y Yo 💜</em></p>
 
       </article>
 
-      <!-- Botón volver -->
-      <button id="btn-back" class="btn-back" type="button">
-        ← Volver al sobre
-      </button>
+      <button id="btn-back" class="btn-back" type="button">← Volver al sobre</button>
 
     </div>
-    <!-- /letter-screen -->
 
   </div>
-  <!-- /app -->
 
-  <!-- Script principal -->
+  <!-- ✅ Audio — pon tu archivo music.mp3 en la misma carpeta -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
   <script src="script.js"></script>
+
+  <!-- Script de música inline (independiente del script.js existente) -->
+  <script>
+    /* ── MÚSICA ── */
+    const musicBar   = document.getElementById('music-bar');
+    const musicIcon  = document.getElementById('music-icon');
+    const musicWaves = document.getElementById('music-waves');
+    const bgMusic    = document.getElementById('bg-music');
+    let isPlaying = false;
+
+    function setMusicUI(playing) {
+      if (playing) {
+        musicIcon.textContent = '🎵';
+        musicIcon.className = 'music-icon playing';
+        musicWaves.classList.remove('paused');
+        musicBar.setAttribute('aria-label', 'Pausar música');
+      } else {
+        musicIcon.textContent = '⏸';
+        musicIcon.className = 'music-icon paused';
+        musicWaves.classList.add('paused');
+        musicBar.setAttribute('aria-label', 'Reproducir música');
+      }
+    }
+
+    function toggleMusic() {
+      if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        setMusicUI(false);
+      } else {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          setMusicUI(true);
+        }).catch(err => console.warn('Audio bloqueado:', err));
+      }
+    }
+
+    musicBar.addEventListener('click', toggleMusic);
+
+    /* ── TRANSICIONES DE PANTALLA ── */
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const letterScreen  = document.getElementById('letter-screen');
+    const btnOpen       = document.getElementById('btn-open');
+    const btnBack       = document.getElementById('btn-back');
+    const envContainer  = document.getElementById('envelope-container');
+
+    function openLetter() {
+      welcomeScreen.style.opacity = '0';
+      welcomeScreen.style.transition = 'opacity .5s ease';
+      setTimeout(() => {
+        welcomeScreen.style.display = 'none';
+        letterScreen.style.display  = 'flex';
+        letterScreen.style.opacity  = '0';
+        letterScreen.style.transition = 'opacity .5s ease';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { letterScreen.style.opacity = '1'; });
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // ✅ Iniciar música automáticamente al abrir la carta
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          setMusicUI(true);
+        }).catch(() => {
+          // Si el navegador bloquea, el usuario puede tocar la barra
+          setMusicUI(false);
+        });
+
+      }, 500);
+    }
+
+    function closeLetter() {
+      // Pausar música al volver
+      bgMusic.pause();
+      bgMusic.currentTime = 0;
+      isPlaying = false;
+      setMusicUI(false);
+
+      letterScreen.style.opacity = '0';
+      setTimeout(() => {
+        letterScreen.style.display  = 'none';
+        welcomeScreen.style.display = 'flex';
+        welcomeScreen.style.opacity = '0';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { welcomeScreen.style.opacity = '1'; });
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 500);
+    }
+
+    btnOpen.addEventListener('click', openLetter);
+    envContainer.addEventListener('click', openLetter);
+    btnBack.addEventListener('click', closeLetter);
+
+    // Estado inicial
+    letterScreen.style.display = 'none';
+    welcomeScreen.style.display = 'flex';
+  </script>
 
 </body>
 </html>
